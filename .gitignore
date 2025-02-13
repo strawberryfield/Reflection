@@ -13,6 +13,6 @@
 *.glksave
 Metadata.iFiction
 Release.blurb
-Skein.skein
+*.skein
 story.zblorb
 story.ni
