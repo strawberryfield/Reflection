@@ -1,4 +1,20 @@
-Reflection by Roberto Ceccarelli begins here.
+Reflection by The Strawberry Field begins here.
+
+[
+Reflection © 2025 by Roberto Ceccarelli - The Strawberry Field 
+is licensed under CC BY-NC-SA 4.0. 
+To view a copy of this license, 
+visit https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+Reflection by The Strawberry Field is free software: 
+you can redistribute it and/or modify it
+under the terms of the Creative Commons BY-NC-SA license.
+
+Reflection is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+See the license for more details.
+]
 
 Include Lexicography (for glulx only) by Zed Lopez.
 
@@ -20,10 +36,11 @@ To decide what command-table-entry is the next command table entry of (a - comma
 Chapter Listing verbs
 
 Listing verbs is an action out of world.
+The listing verbs action translates into Inter as "VerbsList".
 Understand "verbs" as listing verbs.
 Understand the command "commands" as "verbs".
 
-Report listing verbs:
+Report listing verbs (this is the report listing verbs rule):
 	repeat with v running through the dictionary entries:
 		unless v is verb-entry, next;
 		if v is meta-entry, next;
@@ -49,9 +66,10 @@ Report listing verbs:
 Chapter Listing dictionary
 
 Listing dictionary is an action out of world.
+The listing dictionary action translates into Inter as "DictionaryList".
 Understand "dictionary" as listing dictionary.
 
-Report listing dictionary:
+Report listing dictionary (this is the report listing dictionary rule):
 	repeat with d running through the dictionary entries:
 		say "[bold type][d][roman type]: ";
 		if d is meta-entry, say "meta ";
@@ -69,7 +87,7 @@ Example: * Reflection - Listing verbs.
 
 	*: "Listing verbs"
 	
-	Include reflection by Roberto Ceccarelli.
+	Include reflection by The Strawberry Field.
 	
 	Lab is a room.
 	
@@ -80,7 +98,7 @@ Example: * Reflection - Listing dictionary.
 
 	*: "Listing dictionary"
 	
-	Include reflection by Roberto Ceccarelli.
+	Include reflection by The Strawberry Field.
 	
 	Lab is a room.
 	
