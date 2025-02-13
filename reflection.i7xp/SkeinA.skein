@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-43">
+  <generator>Windows Inform 10.1.2</generator>
+  <item nodeId="node-43">
+    <command xml:space="preserve">Substring function examples</command>
+    <result xml:space="preserve">Substring function examples&#x000A;An Interactive Fiction&#x000A;Release 1 / Serial number 241212 / Inform 7 v10.1.2 / D&#x000A;&#x000A;Lab&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-44"/>
+    </children>
+  </item>
+  <item nodeId="node-44">
+    <command xml:space="preserve">verbs</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+</Skein>
