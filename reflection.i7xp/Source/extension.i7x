@@ -16,6 +16,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the license for more details.
 ]
 
+Book Dictionary
+
 Include Lexicography (for glulx only) by Zed Lopez.
 
 Chapter API
@@ -79,6 +81,7 @@ Report listing dictionary (this is the report listing dictionary rule):
 		if d is plural-entry, say "[italic type](plural)[roman type]";
 		say line break.
 
+[---]
 Reflection ends here.
 
 ---- DOCUMENTATION ----
