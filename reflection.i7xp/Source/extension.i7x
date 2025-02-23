@@ -99,6 +99,13 @@ Include (-
 ];
 -).
 
+To say debug mode:  (- 
+print "";
+#ifdef DEBUG;
+print " / D";
+#endif; 
+-)
+
 [---]
 Reflection ends here.
 
@@ -134,7 +141,7 @@ Example: * Reflection - Versions.
 	
 	Lab is a room.
 	The serial is here. The description is "Story serial number is: [story serial number]".
-	The inform7 is here. The description is "Inform7 version: [inform7 version]".
+	The inform7 is here. The description is "Inform7 version: [inform7 version][debug mode]".
 	The inform6 is here. The description is "Inform6 version: [inform6 version]".
 	
 	Test me with "x serial/x inform7/x inform6".
