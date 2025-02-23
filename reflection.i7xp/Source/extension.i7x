@@ -81,6 +81,24 @@ Report listing dictionary (this is the report listing dictionary rule):
 		if d is plural-entry, say "[italic type](plural)[roman type]";
 		say line break.
 
+Book Versions
+
+To say story serial number: (- PrintSerialNumber(); -).
+Include (-
+[ PrintSerialNumber i;
+	for (i=0 : i<6 : i++) print (char) ROM_GAMESERIAL->i;
+];
+-).
+
+To say inform7 version: (- PrintI6Text(I7_VERSION_NUMBER); -).
+
+To say inform6 version: (- PrintI6Version(); -).
+Include (-
+[ PrintI6Version i;
+	for (i=0 : i<4 : i++) print (char) ROM_INFORMVERSION->i;
+];
+-).
+
 [---]
 Reflection ends here.
 
@@ -106,4 +124,18 @@ Example: * Reflection - Listing dictionary.
 	Lab is a room.
 	
 	Test me with "dictionary".
+
+
+Example: * Reflection - Versions.
+
+	*: "Versions"
+	
+	Include reflection by The Strawberry Field.
+	
+	Lab is a room.
+	The serial is here. The description is "Story serial number is: [story serial number]".
+	The inform7 is here. The description is "Inform7 version: [inform7 version]".
+	The inform6 is here. The description is "Inform6 version: [inform6 version]".
+	
+	Test me with "x serial/x inform7/x inform6".
 
