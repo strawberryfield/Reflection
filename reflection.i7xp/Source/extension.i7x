@@ -35,6 +35,106 @@ To decide if action of (a - command-table-entry) is reversed: (- ((ReadShortInt(
 
 To decide what command-table-entry is the next command table entry of (a - command-table-entry): (- UnpackGrammarLine({a}) -)
 
+Include (-
+[ PrintGrammarLines address lines;
+lines = address->0;
+address++;
+while (lines > 0) {
+  address = UnpackGrammarLine(address);
+  PrintGrammarLine();
+  print "^";
+  lines--;
+}
+];
+
+[ PrintGrammarLine pcount;
+	print " * ";
+	for (:((line_token-->(pcount)) ~= ENDIT_TOKEN):(pcount)++) {
+		if (((((line_token-->(pcount))->(0)))&(16))) {
+			print "/ ";
+		}
+		PrintToken((line_token-->(pcount)));
+		print " ";
+	}
+	print "-> ";
+	DebugAction(action_to_be);
+	if (action_reversed) {
+		print " (with nouns reversed)";
+	}
+];
+[ PrintToken token;
+	AnalyseToken(token);
+	switch (found_ttype) {
+		ILLEGAL_TT:
+			print "<illegal token number ";
+			print token;
+			print ">";
+			;
+		ELEMENTARY_TT:
+			switch (found_tdata) {
+				NOUN_TOKEN:
+					print "[something]";
+					;
+				HELD_TOKEN:
+					print "[something preferably held]";
+					;
+				MULTI_TOKEN:
+					print "[things]";
+					;
+				MULTIHELD_TOKEN:
+					print "[things preferably held]";
+					;
+				MULTIEXCEPT_TOKEN:
+					print "[other things]";
+					;
+				MULTIINSIDE_TOKEN:
+					print "[things inside]";
+					;
+				CREATURE_TOKEN:
+					print "[someone]";
+					;
+				SPECIAL_TOKEN:
+					print "[special]";
+					;
+				NUMBER_TOKEN:
+					print "[number]";
+					;
+				TOPIC_TOKEN:
+					print "[text]";
+					;
+				ENDIT_TOKEN:
+					print "END";
+					;
+			}
+			;
+		PREPOSITION_TT:
+			print (address) found_tdata;
+			;
+		ROUTINE_FILTER_TT:
+			print "noun=Routine(";
+			print found_tdata;
+			print ")";
+			;
+		ATTR_FILTER_TT:
+			DebugAttribute(found_tdata);
+			;
+		SCOPE_TT:
+			print "scope=Routine(";
+			print found_tdata;
+			print ")";
+			;
+		GPR_TT:
+			print "Routine(";
+			print found_tdata;
+			print ")";
+			;
+	}
+];
+-).
+
+To say grammar lines content of/for/-- (c - command-table-entry): (- PrintGrammarLines({c}-1); -)
+
+
 Chapter Listing verbs
 
 Listing verbs is an action out of world.
@@ -65,6 +165,27 @@ Report listing verbs (this is the report listing verbs rule):
 				let A be action number of cte;
 				if O is A, let skip next be true.
 
+Chapter Listing grammar
+
+Listing grammar is an action out of world.
+The listing grammar action translates into Inter as "GrammarList".
+Understand "grammar" as listing grammar.
+
+Report listing grammar (this is the report listing grammar rule):
+	repeat with v running through the dictionary entries:
+		unless v is verb-entry, next;
+		if v is meta-entry, next;
+		let cmd-alias be the command verb of v;
+		let cte be the command table entry for cmd-alias;
+		let cmd-action be the action name for cte;
+		if "[cmd-action]" exactly matches the text "", next;
+		say "[bold type][v][roman type]";
+		unless "[v]" exactly matches the text "[cmd-alias]":
+			say " [italic type](same as [roman type][cmd-alias][italic type]) [roman type][line break]";
+		otherwise:
+			say "[roman type]: [line break]";
+			say "[grammar lines content for cte]".
+				
 Chapter Listing dictionary
 
 Listing dictionary is an action out of world.
@@ -119,7 +240,7 @@ Example: * Reflection - Listing verbs.
 	
 	Lab is a room.
 	
-	Test me with "verbs".
+	Test me with "grammar".
 	
 
 Example: * Reflection - Listing dictionary.
