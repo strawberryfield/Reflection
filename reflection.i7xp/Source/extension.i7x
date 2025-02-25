@@ -57,10 +57,12 @@ while (lines > 0) {
 		print " ";
 	}
 	print "-> ";
-	DebugAction(action_to_be);
+	style underline;
+	SayActionName(action_to_be);
 	if (action_reversed) {
 		print " (with nouns reversed)";
 	}
+	style roman;
 ];
 [ PrintToken token;
 	AnalyseToken(token);
