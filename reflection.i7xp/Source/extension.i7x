@@ -122,9 +122,7 @@ while (lines > 0) {
 			print "[something in specific scope]";
 			;
 		GPR_TT:
-			print "Routine(";
-			print found_tdata;
-			print ")";
+			print "[alternative words]";
 			;
 	}
 ];
@@ -148,6 +146,7 @@ Report listing verbs (this is the report listing verbs rule):
 		let cte be the command table entry for cmd-alias;
 		let cmd-action be the action name for cte;
 		if "[cmd-action]" exactly matches the text "", next;
+		if "[v]" exactly matches the text "no.verb", next;
 		say "[bold type][v][roman type]";
 		unless "[v]" exactly matches the text "[cmd-alias]":
 			say " [italic type](same as [roman type][cmd-alias][italic type]) [roman type][line break]";
@@ -208,6 +207,26 @@ Example: * Reflection - Listing verbs.
 	Include reflection by The Strawberry Field.
 	
 	Lab is a room.
+	
+	Chapter Special actions
+	
+	Section Requesting help
+	
+	Requesting help is an action out of world.
+	The requesting help action translates into Inter as "Help".
+
+	Understand "help me/-- please/--" as requesting help. 
+	Understand "help/hint/hints/suggestion/suggestions/advise/tip/tips" as "[help]".
+	Understand "ask for [help]" as requesting help.
+	Understand "get [help]" as requesting help.
+	
+	Section Coffee type
+	
+	Understand "classic/standard/normal/ordinary blend/coffee/--" as "[classic blend]".
+	Answering classic is an action applying to nothing.
+	Understand "[classic blend]" as answering classic.
+
+	Chapter Do test
 	
 	Test me with "verbs".
 	
