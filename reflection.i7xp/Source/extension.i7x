@@ -1,4 +1,4 @@
-Reflection by The Strawberry Field begins here.
+Version 1 of Reflection by The Strawberry Field begins here.
 
 [
 Reflection © 2025 by Roberto Ceccarelli - The Strawberry Field 
@@ -113,17 +113,13 @@ while (lines > 0) {
 			print (address) found_tdata;
 			;
 		ROUTINE_FILTER_TT:
-			print "noun=Routine(";
-			print found_tdata;
-			print ")";
+			print "[something specific]";
 			;
 		ATTR_FILTER_TT:
 			DebugAttribute(found_tdata);
 			;
 		SCOPE_TT:
-			print "scope=Routine(";
-			print found_tdata;
-			print ")";
+			print "[something in specific scope]";
 			;
 		GPR_TT:
 			print "Routine(";
@@ -145,35 +141,6 @@ Understand "verbs" as listing verbs.
 Understand the command "commands" as "verbs".
 
 Report listing verbs (this is the report listing verbs rule):
-	repeat with v running through the dictionary entries:
-		unless v is verb-entry, next;
-		if v is meta-entry, next;
-		let cmd-alias be the command verb of v;
-		let cte be the command table entry for cmd-alias;
-		let cmd-action be the action name for cte;
-		if "[cmd-action]" exactly matches the text "", next;
-		say "[bold type][v][roman type]";
-		unless "[v]" exactly matches the text "[cmd-alias]":
-			say " [italic type](same as [roman type][cmd-alias][italic type]) [roman type][line break]";
-		otherwise:
-			let num-actions be the number of grammar lines for cmd-alias;
-			say "[roman type]: [line break]";
-			let skip next be false;
-			repeat with x running from 1 to num-actions:
-				if skip next is false, say "- [italic type][action name for cte][roman type][line break]";
-				let O be action number of cte;
-				let cte be the next command table entry of cte;
-				let skip next be false;
-				let A be action number of cte;
-				if O is A, let skip next be true.
-
-Chapter Listing grammar
-
-Listing grammar is an action out of world.
-The listing grammar action translates into Inter as "GrammarList".
-Understand "grammar" as listing grammar.
-
-Report listing grammar (this is the report listing grammar rule):
 	repeat with v running through the dictionary entries:
 		unless v is verb-entry, next;
 		if v is meta-entry, next;
@@ -242,7 +209,7 @@ Example: * Reflection - Listing verbs.
 	
 	Lab is a room.
 	
-	Test me with "grammar".
+	Test me with "verbs".
 	
 
 Example: * Reflection - Listing dictionary.
