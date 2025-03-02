@@ -1,4 +1,4 @@
-Version 1 of Reflection by The Strawberry Field begins here.
+Version 1 of Reflection (for glulx only) by The Strawberry Field begins here.
 
 [
 Reflection © 2025 by Roberto Ceccarelli - The Strawberry Field 
@@ -16,12 +16,16 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the license for more details.
 ]
 
+"Based on some routines presented by Zed Lopez on the Interactive Fiction Forum, it presents an action that lists the entire dictionary known to the programme (provided as an example) and a list of verbs, together with the decoding of the grammar lines associated with each of them.
+There are also functions to read the versions of the compiled story and the compilers used."
+
 Book Dictionary
 
 Include Lexicography (for glulx only) by Zed Lopez.
 
 Chapter API
 
+[Inform 6 doesn't provide a functio for reading 16 bit data, so I need this]
 Include  (- 
 [ReadShortInt addr ret;
 	ret = addr->1 + addr->0 * $100;
@@ -135,6 +139,10 @@ Chapter Listing verbs
 
 Listing verbs is an action out of world.
 The listing verbs action translates into Inter as "VerbsList".
+The specification of the listing verbs action is "Returns to the player a list of all the verbs recognised by the game as commands. For each one, it gives either the synonym or the list of related grammar lines.
+The information is taken from the compiled tables, so no information about alternative words (separated by a slash) or object kinds filters can be provided.
+This is an action out of world."
+
 Understand "verbs" as listing verbs.
 Understand the command "commands" as "verbs".
 
@@ -158,6 +166,10 @@ Chapter Listing dictionary
 
 Listing dictionary is an action out of world.
 The listing dictionary action translates into Inter as "DictionaryList".
+The specification of the listing dictionary action is "Returns to the player a list of all the words known by the game.
+It was initially provided as an example of the extension ‘Lexicography’.
+This is an action out of world."
+
 Understand "dictionary" as listing dictionary.
 
 Report listing dictionary (this is the report listing dictionary rule):
