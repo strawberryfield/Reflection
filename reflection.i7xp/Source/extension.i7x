@@ -207,6 +207,13 @@ print " / D";
 #endif; 
 -)
 
+To say IFID code: (- PrintIFID(); -).
+Include (-
+[ PrintIFID i;
+	for (i=8 : i <= (UUID_ARRAY->0)-2: i++) print (char) UUID_ARRAY->i;
+];
+-).
+
 [---]
 Reflection ends here.
 
@@ -264,6 +271,7 @@ Example: * Reflection - Versions.
 	The serial is here. The description is "Story serial number is: [story serial number]".
 	The inform7 is here. The description is "Inform7 version: [inform7 version][debug mode]".
 	The inform6 is here. The description is "Inform6 version: [inform6 version]".
+	The IFID is here. The description is "IFID: [IFID code]".
 	
-	Test me with "x serial/x inform7/x inform6".
+	Test me with "x serial/x inform7/x inform6/x IFID".
 
