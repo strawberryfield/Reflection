@@ -214,6 +214,30 @@ Include (-
 ];
 -).
 
+To say interpreter version: (- PrintInterpreterVersion(); -).
+Include (-
+[ PrintInterpreterVersion ix;
+	@gestalt 1 0 ix;
+	print (ix/65536);
+	print ".";
+	print (((ix)&(65280))/256);
+	print ".";
+	print ((ix)&(255));
+];
+-).	
+
+To say VM version: (- PrintVMVersion(); -).	
+Include (-
+[ PrintVMVersion ix;
+	@gestalt 0 0 ix;
+	print (ix/65536);
+	print ".";
+	print (((ix)&(65280))/256);
+	print ".";
+	print ((ix)&(255));
+];
+-)
+
 [---]
 Reflection ends here.
 
@@ -272,6 +296,7 @@ Example: * Reflection - Versions.
 	The inform7 is here. The description is "Inform7 version: [inform7 version][debug mode]".
 	The inform6 is here. The description is "Inform6 version: [inform6 version]".
 	The IFID is here. The description is "IFID: [IFID code]".
+	The Interpreter is here. The description is "Interpreter version: [interpreter version] / VM: [VM version]".
 	
-	Test me with "x serial/x inform7/x inform6/x IFID".
+	Test me with "x serial/x inform7/x inform6/x IFID/x interpreter".
 
